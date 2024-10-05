@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Load } from "../../components/Load";
 import NavBar from "../../components/NavBar";
-import Bible from "../../api/bible";
+import Bible from "../../api/bible.js";
 import Livros from "../../components/Livros";
 
 export default function App() {

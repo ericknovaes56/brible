@@ -4,7 +4,7 @@ import NavBar from "../../components/NavBar";
 import Bible from "../../api/bible";
 import Livros from "../../components/Livros";
 import { json, useNavigate, useParams } from "react-router-dom";
-import requestAi from "../../api/gemini";
+import requestAi from "../../api/gemini.js";
 
 export default function Livro() {
 
