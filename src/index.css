@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #39393d;
+  --secondary-color:#131314;
+  --screen-max: 1920px;
+  --p-screen: 100px;
+}
+body{
+  background-color: var(--secondary-color);
+}
+main{
+  padding-bottom: 100px;
+  overflow: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+.boll{
+  content: '';
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  background-color: rgb(21, 21, 109);
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.border-color{
+  border-color: var(--primary-color);
+}
+.back-color{
+  background-color: var(--primary-color);
+}
+.content-max{
+  position: relative;
+  z-index: 1;
+  max-width: var(--screen-max);
+  margin: auto;
+  padding: 0 var(--p-screen);
+}
+.btn{
+  box-shadow: 0 5px black;
+  transition: all .3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.btn.noflex{
+  justify-content: unset;
+  align-items: unset;
+}
+.btn:hover{
+  box-shadow: 0 2px black;
+  transform: translateY(3px);
+}
+
+.load{
+  animation: load .6s linear infinite;
+}
+
+.backimage{
+  background: 
+  linear-gradient(rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.849)), 
+  url('https://picsum.photos/800/600');
+  background-position: center center;
+  background-size: cover;
+
+}
+
+@keyframes load {
+  to{
+    transform: rotate(360deg);
+  }
+}
+.boll-verse{
+  border-radius: 3px;
+  width: 4px;
+  height: calc(100% + 10px);
+  top:0;
+  position: absolute;
+}
+.boll-verse.checked{
+  background-color: rgb(19, 194, 19);
+}
+.boll-verse::after{
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 15px;
+  transform: translate(calc(-50% + 2px), -5px);
+  background-color: white;
+  border-radius: 100%;
+  height: 15px;
+}
+.boll-verse.checked::after{
+  background-color: rgb(19, 194, 19);
+}
+.boll-verse:nth-last-child(){
+  background-color: red;
+}
+.pai-boll{
+  position: relative;
+}
+.pai-boll:last-child .boll-verse::after{
+  margin: 0;
+  bottom: 0;
+  top: auto;
+  transform: translate(calc(-50% + 2px), 10px);
+} 
+
+.pai-boll:last-child .boll-verse{
+  height: 50%;
+} 
+
+.pai-boll:first-child .boll-verse::after{
+  margin: 0;
+  top: 0;
+  transform: translate(calc(-50% + 2px), -14px);
+} 
+
+.pai-boll:first-child .boll-verse{
+  margin: 0;
+  top: auto;
+  height: 51%;
+  transform: translateY(10px);
+  bottom: 0;
+} 
+@media (max-width: 1290px){
+  .gridapp{
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+@media (max-width: 1024px){
+  .gridapp{
+    grid-template-columns: repeat(3,1fr);
+  }
+}
+@media (max-width: 925px){
+  .topoapp{
+    flex-direction: column;
+  }
+  :root{
+    --p-screen: 20px;
+  }
+  .gridapp{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (max-width: 600px){
+  .topoapp{
+    flex-direction: column;
+  }
+  :root{
+    --p-screen: 20px;
+  }
+  .gridapp{
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 412px){
+ .wrap-cont{
+  flex-direction: column;
+ }
+ .wrap-cont span{
+  width: 100%;
+ }
+}
