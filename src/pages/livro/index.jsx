@@ -41,7 +41,7 @@ export default function Livro() {
 
         if (response.code == 200) {
             setContext(response.data)
-            localStorage.setItem(livroApi.reference, JSON.stringify(response.data))
+            localStorage.setItem(livro, JSON.stringify(response.data))
         }
 
 
