@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Load } from "../../components/Load";
 import NavBar from "../../components/NavBar";
-import Bible from "../../utils/bible.js";
+import Bible from "../../utils/Bible.js";
 import Livros from "../../components/Livros";
 import { json, useNavigate, useParams } from "react-router-dom";
 import requestAi from "../../utils/gemini.js";
