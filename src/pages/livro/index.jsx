@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Load } from "../../components/Load";
 import NavBar from "../../components/NavBar";
-import Bible from "../../api/bible";
+import Bible from "../../utils/bible.js";
 import Livros from "../../components/Livros";
 import { json, useNavigate, useParams } from "react-router-dom";
-import requestAi from "../../api/gemini.js";
+import requestAi from "../../utils/gemini.js";
 
 export default function Livro() {
 
