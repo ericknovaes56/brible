@@ -36,12 +36,12 @@ export default function Livro() {
             return
         }
 
-        const response = await requestAi("explique sobre esse livro da biblia de forma breve e resumida 4 linhas: " + livroApi.reference)
+        const response = await requestAi("explique sobre esse livro da biblia de forma breve e resumida 4 linhas: " + livro)
 
 
         if (response.code == 200) {
             setContext(response.data)
-            localStorage.setItem(livro, JSON.stringify(response.data))
+            localStorage.setItem(livroApi.reference, JSON.stringify(response.data))
         }
 
 
@@ -118,7 +118,7 @@ export default function Livro() {
                         </div>
                     </div>
                     <span className="text-white mt-4 flex">#Content</span>
-                    <div className="flex gap-2">
+                    <div className="flex overflow-auto py-2 gap-2">
                         <button onClick={()=>{
                             Bible.ouvir(livroApi.text)
                         }} className="back-color btn text-white p-2 mt-3 rounded-md">

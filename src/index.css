@@ -60,6 +60,7 @@ main{
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .btn.noflex{
   justify-content: unset;
