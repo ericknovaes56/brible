@@ -12,7 +12,7 @@ export default function App() {
         <main>  
  
             <div className="boll"></div>
-            <div className="content pt-10 z-10">
+            <div className="content pt-5 z-10">
                 <div className="content-max">
                     <div className="flex topoapp gap-2">
 

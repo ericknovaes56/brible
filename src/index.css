@@ -197,4 +197,7 @@ main{
  .wrap-cont span{
   width: 100%;
  }
+ .wrap-cont button{
+  width: 100%;
+ }
 }
