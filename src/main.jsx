@@ -24,10 +24,14 @@ const router = createBrowserRouter([
     path: "/livro/:livro",
     element: <Livro/>,
   },
+  {
+    path: "/livro/:livro/:cap",
+    element: <Livro/>,
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+
+  <RouterProvider router={router} />
+
 )

@@ -32,8 +32,6 @@ export default class Bible {
             
             const response = await fetch(`https://bible-api.com/${livro}?translation=almeida`);
 
-            console.log(`https://bible-api.com/${livro}?translation=almeida`)
-
             const data = await response.json();
 
             return data
