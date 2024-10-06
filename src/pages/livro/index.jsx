@@ -82,6 +82,10 @@ export default function Livro() {
                     <TopoLivro context={context} livroApi={livroApi}/>
                     <span className="text-white mt-4 flex">#Content</span>
                     <div className="flex overflow-auto py-2 gap-2">
+                        <button onClick={heandleProximo} className="back-color btn text-white p-2 mt-3 rounded-md">
+                            <i className='bx bxs-book-bookmark'></i>
+                            PROXIMO
+                        </button>
                         <button onClick={() => {
                             Bible.ouvir(livroApi.text)
                         }} className="back-color btn text-white p-2 mt-3 rounded-md">
@@ -93,10 +97,6 @@ export default function Livro() {
                         }} className="back-color btn text-white p-2 mt-3 rounded-md">
                             <i className='bx bx-pause'></i>
                             PARAR
-                        </button>
-                        <button onClick={heandleProximo} className="back-color btn text-white p-2 mt-3 rounded-md">
-                            <i className='bx bxs-book-bookmark'></i>
-                            PROXIMO
                         </button>
                     </div>
                     <div className="flex flex-col gap-2 mt-4 ml-[3px]">

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import { Load } from "../Load"
+import Bible from "../../utils/Bible"
 
 export default function TopoLivro({ context, livroApi }) {
 
