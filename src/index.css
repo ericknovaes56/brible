@@ -12,14 +12,13 @@
   --primary-color: #39393d;
   --secondary-color:#131314;
   --screen-max: 1920px;
-  --p-screen: 100px;
+  --p-screen: 50px;
 }
 body{
   background-color: var(--secondary-color);
 }
 main{
   padding-bottom: 100px;
-  overflow: hidden;
   min-height: 100vh;
   position: relative;
 }

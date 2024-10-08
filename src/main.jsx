@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import App from './pages/app';
 import Livro from './pages/livro';
+import Chat from './pages/chat';
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/livro",
     element:<Navigate to="/" /> ,
+  },
+  {
+    path: "/chat",
+    element:<Chat/> ,
   },
   {
     path: "/livro/:livro",

@@ -5,6 +5,7 @@ export default function ContinuarLendo() {
     const [saves, setSaves] = useState([]);
     const scrollRef = useRef(null); // Referência para o contêiner dos cartões
 
+
     const livros = [
         "Gênesis", "Êxodo", "Levítico", "Números", "Deuteronômio",
         "Josué", "Juízes", "Rute", "1 Samuel", "2 Samuel",
