@@ -6,11 +6,11 @@ import SideBar from "../../components/SideBar.jsx";
 export default function App() {
 
     return (
-        <main>
+        <main className="overflow-x-hidden">
             <div className="boll"></div>
             <div className="content flex w-full pt-5">
                 <div className="flex content-max w-full gap-4">
-                    <SideBar />
+
                     <div className="flex w-full flex-col">
                         <div className="flex topoapp gap-2">
 
