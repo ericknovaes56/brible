@@ -8,10 +8,10 @@ import TopoLivro from "../../components/Livro/TopoLivro.jsx";
 
 export default function Livro() {
 
-    const { livro , cap } = useParams()
+    const { livro, cap } = useParams()
     const [context, setContext] = useState("")
     const [livroApi, setlivroApi] = useState("")
-    const [number, setNumber] = useState(cap ? parseInt(cap) : 1 )
+    const [number, setNumber] = useState(cap ? parseInt(cap) : 1)
 
 
     const navigate = useNavigate()
@@ -52,7 +52,7 @@ export default function Livro() {
 
     useEffect(() => {
 
-        navigate("/livro/"+livro+"/"+number)
+        navigate("/livro/" + livro + "/" + number)
 
         call()
 
@@ -65,8 +65,31 @@ export default function Livro() {
 
     }
 
+    const [numbers, setNumbers] = useState([]);
+
+    useEffect(() => {
+        const generateNumbers = (max) => Array.from({ length: max }, (_, i) => i + 1);
+        setNumbers(generateNumbers(471));
+    }, []);
+
+    const handleClick = async (numberIndex, event) => {
+        const response = await Bible.read(livro + "+" + numberIndex);
+        console.log(numberIndex)
+        if (!response.error) {
+
+            setNumber(numberIndex);
+
+        } else {
+
+
+            setNumbers((prev) => prev.slice(0, numberIndex - 1 ));
+
+        }
+    };
+
+
     return (
-        <main>
+        <main className="overflow-x-hidden">
 
             <div className="boll"></div>
             <div className="content pt-5 z-10">
@@ -79,7 +102,7 @@ export default function Livro() {
                         </button>
 
                     </a>
-                    <TopoLivro context={context} livroApi={livroApi}/>
+                    <TopoLivro context={context} livroApi={livroApi} />
                     <span className="text-white mt-4 flex">#Content</span>
                     <div className="flex overflow-auto py-2 gap-2">
                         <button onClick={heandleProximo} className="back-color btn text-white p-2 mt-3 rounded-md">
@@ -99,10 +122,17 @@ export default function Livro() {
                             PARAR
                         </button>
                     </div>
+                    <div className="flex h-[150px] overflow-auto gap-2 flex-wrap">
+                        {numbers.map((numberIndex, index) => (
+                            <button key={index} onClick={(e) => handleClick(numberIndex, e)} className={"bg-[#0000009d] w-12 h-12  rounded-xl text-white p-2 mt-3 font-bold " + (numberIndex === number ? "bg-green-500 text-black" : "")}>
+                                {numberIndex}
+                            </button>
+                        ))}
+                    </div>
                     <div className="flex flex-col gap-2 mt-4 ml-[3px]">
                         {livroApi ? livroApi.verses.map((verse, index) => (
 
-                        <Verse verse={verse} key={index}/>
+                            <Verse verse={verse} key={index} />
 
                         )) : <Load />}
                     </div>
