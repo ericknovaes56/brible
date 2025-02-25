@@ -1,30 +1,34 @@
-const api = "https://bardai-o8nd.onrender.com/bardapi"
-
 const requestAi = async (prompt) => {
-    const respose = await fetch(api, {
-        method: "POST",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({prompt:prompt}),
-    })
+    // URL do Google API ajustada conforme o seu exemplo original
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyASoS57BccQgRtDxU3h5Lo-X8oh_ZRO588`;
 
-    const data = await respose.json()
-    
+    try {
+        // Realizando a requisição usando fetch
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt }] }]
+            })
+        });
 
-    if (data.text.split(' ').includes("Error")) {
-        console.log('error')
+        const data = await response.json();
+
+        const text = data.candidates[0].content.parts[0].text;
+
+        return {
+            data: text,
+            code: 200
+        };
+    } catch (error) {
+        console.error('Erro ao fazer requisição:', error);
         return {
             data: null,
-            code: 429
-        }
+            code: 500
+        };
     }
+};
 
-
-    return {
-        data: data,
-        code:200
-    }
-
-}
-
-
-export default requestAi
+export default requestAi;

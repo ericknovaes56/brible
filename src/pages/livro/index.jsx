@@ -40,11 +40,10 @@ export default function Livro() {
 
         const response = await requestAi("explique sobre esse livro da biblia de forma breve e resumida 4 linhas: " + livro)
 
+        console.log(response.data)
 
-        if (response.code == 200) {
-            setContext(response.data)
-            localStorage.setItem(livro, JSON.stringify(response.data))
-        }
+        setContext(response.data)
+        localStorage.setItem(livro, JSON.stringify(response.data))
 
 
 

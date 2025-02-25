@@ -17,7 +17,7 @@ export default function TopoLivro({ context, livroApi }) {
             localStorage.removeItem(code)
             bookmark.current.classList.remove("bxs-bookmark")
         } else {
-            localStorage.setItem(code, context.text)
+            localStorage.setItem(code, context)
             bookmark.current.classList.add("bxs-bookmark")
         }
 
@@ -56,12 +56,12 @@ export default function TopoLivro({ context, livroApi }) {
 
                 </div>
                 <p className="flex flex-col">
-                    {context ? context.text : <Load />}
+                    {context ? context : <Load />}
                 </p>
                 {context && livroApi ? <div className="flex gap-2">
                     <span onClick={() => {
                         if (context) {
-                            Bible.ouvir(context.text)
+                            Bible.ouvir(context)
                         }
                     }} className="mt-2 btn bg-[#131314] cursor-pointer w-fit p-2 rounded-md">
                         <i className='bx bx-play' ></i>
